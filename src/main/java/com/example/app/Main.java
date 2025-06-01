@@ -14,13 +14,13 @@ public class Main {
         server.createContext("/", new HelloHandler());
         server.setExecutor(null);
         server.start();
-        System.out.println("Servidor iniciado en http://localhost:8080/");
+        System.out.println("Server started in http://localhost:8080/");
     }
 
     static class HelloHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String response = "Hola desde Java en un contenedor Docker!";
+            String response = "Hello from Java in a Docker container!";
             exchange.sendResponseHeaders(200, response.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
