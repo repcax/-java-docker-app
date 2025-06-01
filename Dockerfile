@@ -5,7 +5,8 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copiamos el archivo JAR compilado al contenedor
-COPY target/app.jar app.jar
+COPY target/java-docker-app-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
+
 
 # Este comando será ejecutado al iniciar el contenedor
 CMD ["java", "-jar", "app.jar"]
