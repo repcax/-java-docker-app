@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1                         # Specifies the Kubernetes API version
+kind: Pod                              # Declares that this resource is a Pod
 metadata:
-  name: java-docker-pod
+  name: java-docker-pod                # Sets the name of the Pod
 spec:
   containers:
-  - name: java-docker-container
-    image: 894704312282.dkr.ecr.us-east-1.amazonaws.com/java-docker-app:latest
+  - name: java-docker-container        # Names the container inside the Pod
+    image: 894704312282.dkr.ecr.us-east-1.amazonaws.com/java-docker-app:latest  # Specifies the container image from ECR
     ports:
-    - containerPort: 8080
+    - containerPort: 8080              # Exposes port 8080 inside the container
   imagePullSecrets:
-  - name: regcred
+  - name: regcred                      # Uses the 'regcred' secret to pull the private image from ECR
