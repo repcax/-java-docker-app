@@ -9,4 +9,4 @@ spec:
     ports:
     - containerPort: 8080                # Exposes port 8080 inside the container
   imagePullSecrets:
-  - name: regcred                        # Uses the 'regcred' secret to pull the private image from ECR
+  - name: regcred2                        # Uses the 'regcred' secret to pull the private image from ECR
