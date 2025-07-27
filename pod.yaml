@@ -4,9 +4,9 @@ metadata:
   name: java-docker-pod                # Sets the name of the Pod
 spec:
   containers:
-  - name: java-docker-container        # Names the container inside the Pod
-    image: 894704312282.dkr.ecr.us-east-1.amazonaws.com/java-docker-app:latest  # Specifies the container image from ECR
+  - name: java-docker-container         # Names the container inside the Pod
+    image: 518148152800.dkr.ecr.us-east-2.amazonaws.com/java-docker-app:latest       # Specifies the container image from ECR
     ports:
-    - containerPort: 8080              # Exposes port 8080 inside the container
+    - containerPort: 8080                # Exposes port 8080 inside the container
   imagePullSecrets:
-  - name: regcred                      # Uses the 'regcred' secret to pull the private image from ECR
+  - name: regcred                        # Uses the 'regcred' secret to pull the private image from ECR
