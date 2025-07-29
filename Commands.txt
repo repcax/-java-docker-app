@@ -1,0 +1,43 @@
+
+******************************************
+*** FIRST SLIDE
+******************************************
+
+git clone https://github.com/repcax/-java-docker-app.git
+
+mvn clean package
+
+docker buildx build -t java-docker-app .
+
+docker images
+
+docker run --rm -p 8080:8080 java-docker-app
+
+
+
+******************************************
+*** SECOND SLIDE
+******************************************
+
+docker tag java-docker-app java-docker-app:latest
+
+docker tag java-docker-app:latest 518148152800.dkr.ecr.us-east-2.amazonaws.com/java-docker-app:latest
+
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 518148152800.dkr.ecr.us-east-2.amazonaws.com
+
+docker push 518148152800.dkr.ecr.us-east-2.amazonaws.com/java-docker-app:latest
+
+
+
+******************************************
+*** THIRD SLIDE
+******************************************
+
+kubectl create secret docker-registry regcred2 --docker-server=518148152800.dkr.ecr.us-east-2.amazonaws.com --docker-username=AWS --docker-password=$(aws ecr get-login-password --region us-east-2) --docker-email=repcax@yahoo.com.mx
+
+kubectl apply -f pod.yaml
+
+kubectl get pods
+
+kubectl port-forward pod/java-docker-pod 8080:8080
+
